@@ -126,26 +126,6 @@ function fetchId() {
   return id;
 }
 
-//fetch dropdown(product_type)
-function fillDropdown() {
-  // Fetch data from server
-  fetch('http://localhost:8080/medicine/allForm')
-    .then((response) => response.json())
-    .then((data) => {
-      // Get reference to the select element
-      const dropdown = document.getElementById('dropdown');
-      // Loop through the data and create an option element for each item
-      data.forEach((item) => {
-        const option = document.createElement('option');
-        option.value = item.id;
-        option.text = item.form;
-        // Append option to select element
-        dropdown.appendChild(option);
-      });
-    })
-    .catch((error) => console.error(error));
-}
-
 // to check Launch Year can not be after the MfgDate
 function yearValidation() {
   var launchYear = document.getElementById("launch_year");
