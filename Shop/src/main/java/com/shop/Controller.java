@@ -114,5 +114,15 @@ public class Controller {
 			return false;
 		}
 	}
+	
+	@RequestMapping(path = "/getallProductType", method = RequestMethod.GET)
+	public @ResponseBody List<ProductType> getallProductType() {
+		try {
+			return service.getallProductType();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }
