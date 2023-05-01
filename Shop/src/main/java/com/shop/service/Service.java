@@ -155,6 +155,17 @@ public class Service {
 		session.close();
 		return true;
 	}
+	
+	//get list of ProductType
+	public List<ProductType> getallProductType() {
+		SessionFactory sessionFactory = factory.provideSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		List<ProductType> productTypeList = session.createQuery("FROM ProductType").list();
+		transaction.commit();
+		session.close();
+		return productTypeList;
+	}
 
 	// Launch Year after MfgDate
 	public Boolean launchYearMfgYear(int launchYear, Date mfgYear) {
